@@ -1,0 +1,14 @@
+{
+  "name": "frontend",
+  "homepage": "https://github.com/Shivani6993/ExaminationSystemProject",
+  "description": "html and angular api's",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
