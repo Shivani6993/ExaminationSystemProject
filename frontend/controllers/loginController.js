@@ -1,4 +1,4 @@
-angular.module('ExaminationSytem')
+angular.module('examinationSystem')
 
 .controller('loginController' , function($scope,$http){
 

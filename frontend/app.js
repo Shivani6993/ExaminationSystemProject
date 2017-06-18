@@ -1,1 +1,1 @@
-angular.module('ExaminationSytem',[]);
+angular.module('examinationSystem',[]);
