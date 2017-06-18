@@ -1,6 +1,6 @@
 angular.module('examinationSystem')
 
-.controller('loginController' , function($scope,$http){
+.controller('loginController' , function($scope,$http,$state){
 
 $scope.showLoader = false;
 
@@ -17,6 +17,7 @@ $scope.login = function(){
 	})
 	.then(function(response){
      $scope.showLoader = false;
+		$state.go('profile-state');
 	})
 }
 

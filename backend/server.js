@@ -39,13 +39,13 @@ if(err){
 }
 console.log('connected')
 
-db.collection('SignIn_tb').insertOne(req.query , function(err,data){
+db.collection('SignIn_tb').findOne(req.query , function(err,data){
 if(err){
 	return res.send('Error');
 }
 
 setTimeout(function(){
-	res.send('created');
+	res.send('find success');
 } , 8000)
 
 
@@ -54,6 +54,33 @@ setTimeout(function(){
 })
 
 })
+
+
+app.post('/SignUps' , function(req,res){
+
+	console.log('>>> data received from front' , req.query);
+	req.query.password = sha1(req.query.password);
+
+MongoClient.connect(url , function(err,db){
+
+if(err){
+	console.log(err);
+}
+console.log('connected')
+
+db.collection('SignIn_tb').insertOne(req.query , function(err,data){
+if(err){
+	return res.send('Error');
+}
+res.send('created');
+
+
+})
+
+})
+
+})
+
 app.listen(7000,function(){
 
 

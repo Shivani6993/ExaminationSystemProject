@@ -1,0 +1,17 @@
+<div ng-controller="loginController" style="height: 500px; width: 500px;">
+
+<div class="form-group">
+<label for="email">Email:</label>
+<input type="text" class="form-control" ng-model="name" placeholder="Username">
+</div>
+<div class="form-group">
+<label for="pwd">Password:</label>
+<input type="password" class="form-control" ng-model="pass" placeholder="password">
+</div>
+<div class="checkbox">
+      <label><input type="checkbox"> Remember me</label>
+    </div>
+<button class="btn btn-success"  type="submit" ng-click="login()">Submit</button>
+<label ng-show="showLoader">Please wait seraching for user ...</label>
+
+</div>
