@@ -24,5 +24,12 @@ angular.module('examinationSystem',['ui.router'])
 		})
 
 
+	$stateProvider
+		.state('contact-state',{
+			url:'/contactUs',
+			templateUrl:'contactUs.html'
+		})
+
+
 
 })
