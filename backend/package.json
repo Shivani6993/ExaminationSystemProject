@@ -18,6 +18,7 @@
   "homepage": "https://github.com/shivani/ExainationSystemProject#readme",
   "dependencies": {
     "express": "^4.15.3",
+    "mailgun-js": "^0.11.2",
     "mongodb": "^2.2.28",
     "sha1": "^1.1.1"
   }

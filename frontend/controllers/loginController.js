@@ -21,6 +21,10 @@ $scope.login = function(){
 	})
 }
 
+$scope.fp=function(){
+	$state.go('ForgetPwd-state');
+}
+
 
 
 

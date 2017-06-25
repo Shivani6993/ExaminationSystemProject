@@ -30,6 +30,17 @@ angular.module('examinationSystem',['ui.router'])
 			templateUrl:'contactUs.html'
 		})
 
+	$stateProvider
+		.state('ForgetPwd-state',{
+			url:'/forgetPwd',
+			templateUrl:'forgetpass.html',
+			controller:'forgetController'
+		})
 
+	$stateProvider
+		.state('setpwd-state',{
+			url:'/setpwd',
+			templateUrl:'setpass.html'
+		})
 
 })
