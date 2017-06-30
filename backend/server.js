@@ -93,7 +93,7 @@ var domain = 'sandbox32ce0a8f8f924992a9d56caa030d41b9.mailgun.org';
 var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
  
 var data = {
-  from: 'Mailgun ExaminationSystem <postmaster@sandbox32ce0a8f8f924992a9d56caa030d41b9.mailgun.org>',
+  from: 'OnlineExaminationSystem <postmaster@sandbox32ce0a8f8f924992a9d56caa030d41b9.mailgun.org>',
   to:req.query.mail,
   subject: 'Hello its working',
   html :'<a href="http://127.0.0.1:7000/setpass.html">Click here to set your new password</a>'
@@ -108,6 +108,7 @@ mailgun.messages().send(data, function (error, body) {
 });
 
 })
+
 
 app.listen(7000,function(){
 	console.log('server started');
