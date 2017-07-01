@@ -1,5 +1,5 @@
 var express = require('express');
-var mailgun=require("mailgun-js");
+var mailgun=require('mailgun-js');
 var path = require('path');
 var sha1 = require('sha1');
 
@@ -28,10 +28,10 @@ app.get('/' , function(req,res){
 console.log(__dirname);
 
 
-app.post('/SignIn' , function(req,res){
+app.get('/SignIn' , function(req,res){
 
 	console.log('>>> data received from front' , req.query);
-	req.query.password = sha1(req.query.password);
+	
 
 MongoClient.connect(url , function(err,db){
 
@@ -40,14 +40,24 @@ if(err){
 }
 console.log('connected')
 
-db.collection('SignIn_tb').findOne(req.query , function(err,data){
+db.collection('Students').findOne({mail:req.query.mail} , function(err,data){
 if(err){
 	return res.send('Error');
 }
 
-setTimeout(function(){
-	res.send('find success');
-} , 8000)
+
+
+if(data.password==req.query.password){
+
+	res.send(data);
+}
+else{
+	res.send('passwor incorrect')
+
+}
+console.log(">>>>>> data" , data);
+
+
 
 
 })
@@ -60,7 +70,7 @@ setTimeout(function(){
 app.post('/SignUp' , function(req,res){
 
 	console.log('>>> data received from front' , req.query);
-	req.query.password = sha1(req.query.password);
+	
 
 MongoClient.connect(url , function(err,db){
 
@@ -69,7 +79,7 @@ if(err){
 }
 console.log('connected')
 
-db.collection('SignIn_tb').insertOne(req.query , function(err,data){
+db.collection('Students').insertOne(req.query , function(err,data){
 if(err){
 	return res.send('Error');
 }

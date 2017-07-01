@@ -2,22 +2,25 @@ angular.module('examinationSystem')
 
 .controller('loginController' , function($scope,$http,$state){
 
-$scope.showLoader = false;
+//$scope.showLoader = false;
 
 
 $scope.login = function(){
-	$scope.showLoader = true;
+	//$scope.showLoader = true;
 	$http({
-		method:'POST',
+		method:'GET',
 		url:'/SignIn',
 		params:{
-			name : $scope.name,
+			mail : $scope.mail,
 			password : $scope.pass
 		}
 	})
 	.then(function(response){
-     $scope.showLoader = false;
-		$state.go('profile-state');
+		console.log(">>>>>>. response data",response.data)
+		document.cookie = "email=" + response.data.mail;
+		console.log("cookie" , document.cookie)
+    // $scope.showLoader = false;
+		$state.go('profile-state' , {xyz : response.data});
 	})
 }
 

@@ -20,7 +20,11 @@ angular.module('examinationSystem',['ui.router'])
 	$stateProvider
 		.state('profile-state',{
 			url:'/profile',
-			templateUrl:'profile.html'
+			templateUrl:'profile.html',
+			params:{
+				xyz :null
+			},
+			controller:'profileController'
 		})
 
 
@@ -37,4 +41,9 @@ angular.module('examinationSystem',['ui.router'])
 			controller:'forgetController'
 		})
 
+})
+
+.run(function(){
+	console.log(">>>>>>> checking local storge" , localStorage)
+	console.log(">>>>>>>>>>>>>>>>>" , document.cookie)
 })
