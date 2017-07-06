@@ -1,24 +1,30 @@
 <div>
+<div style="height: 490px; border: solid blue 1px; border-radius: 10px;">
+
+<h2 style="color: blue; text-align: center;">SignUp Form</h2>
 <br/>
+<div style="width:350px; margin-left: 100px;">
 <div class="form-group">
-<label for="Username">Username:</label>
-<input type="text" class="form-control" ng-model="name" placeholder="Username">
+&nbsp;<label for="Username">Username:</label>
+&nbsp;<input type="text" class="form-control" ng-model="name" placeholder="Username">
 </div>
 
 <div class="form-group">
-<label for="email">Email:</label>
-<input type="text" class="form-control" ng-model="mail" placeholder="Email id">
+&nbsp;<label for="email">Email:</label>
+&nbsp;<input type="text" class="form-control" ng-model="mail" placeholder="Email id">
 </div>
 <div class="form-group">
-<label for="pwd">Password:</label>
-<input type="password" class="form-control" ng-model="pass" placeholder="password">
+&nbsp;<label for="pwd">Password:</label>
+&nbsp;<input type="password" class="form-control" ng-model="pass" placeholder="password">
 </div>
 
 <div class="form-group">
-<label for="pwd">Confirm Password:</label>
-<input type="password" class="form-control" ng-model="cnfpass" placeholder="Confirmpassword">
+&nbsp;<label for="pwd">Confirm Password:</label>
+&nbsp;<input type="password" class="form-control" ng-model="cnfpass" placeholder="Confirmpassword">
 </div>
 
-<button class="btn btn-success"  type="submit" ng-click="signup()">Submit</button>
-
+&nbsp;<button class="btn btn-success"  type="submit" ng-click="signup()">Submit</button>
+&nbsp;&nbsp;<a ui-sref="login-state">Existed User? Login</a>
+</div>
+</div>
 </div>
