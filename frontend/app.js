@@ -41,6 +41,16 @@ angular.module('examinationSystem',['ui.router'])
 			controller:'forgetController'
 		})
 
+	$stateProvider
+		.state('StartTest-state',{
+			url:'/startTest',
+			templateUrl:'StartTest.html',
+			params:{
+				test :null
+			},
+			controller:'testController'
+		})
+
 })
 
 .run(function(){

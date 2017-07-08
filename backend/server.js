@@ -52,7 +52,7 @@ if(data.password==req.query.password){
 	res.send(data);
 }
 else{
-	res.send('passwor incorrect')
+	res.send('password incorrect')
 
 }
 console.log(">>>>>> data" , data);
@@ -118,6 +118,62 @@ mailgun.messages().send(data, function (error, body) {
 });
 
 })
+
+
+app.post('/AddQuestion' , function(req,res){
+
+	console.log('>>> data received from front' , req.query);
+	
+
+MongoClient.connect(url , function(err,db){
+
+if(err){
+	console.log(err);
+}
+console.log('connected')
+
+db.collection('Questions').insertOne(req.query , function(err,data){
+if(err){
+	return res.send('Error');
+}
+res.send('created');
+
+
+})
+
+})
+
+})
+
+
+app.get('/StartTest' , function(req,res){
+
+	
+console.log("...................")
+MongoClient.connect(url , function(err,db){
+
+if(err){
+	console.log(err);
+}
+console.log('connected')
+
+db.collection('Questions').find({}).toArray(function(err,ques){
+if(err){
+	res.send(err);
+}
+
+else
+	res.send(ques);
+
+
+})
+
+})
+
+})
+
+
+
 
 
 app.listen(7000,function(){

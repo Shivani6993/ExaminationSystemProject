@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bootstrap slider</title>
+  <title>Online Examination System</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -63,24 +63,24 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
+        <li><a href="#">About Us</a></li>
         <li><a ui-sref="contact-state">ContactUs</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="fa fa-user"></span> Admin Login</a></li>
+        <li><a href="AdminDashboard.html"><span class="fa fa-user"></span> Admin Login</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<div class="container">
+<div class="container" ui-view>
   <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:800px; margin-left:-100px;">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
     </ol>
 
     <!-- Wrapper for slides -->
@@ -103,9 +103,15 @@
         <div class="carousel-caption">
         </div>
       </div>
+
+      <div class="item">
+        <img src="slide_2.jpg" alt="New York" style="width:850px; height: 510px;">
+        <div class="carousel-caption">
+        </div>
+      </div>
+
   
     </div>
-
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left"></span>
@@ -116,10 +122,9 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-</div>
 
- <div ui-view="" class="col-sm-4.5 sidenav" style="margin-left: 810px;margin-top:-510px;">
-      <div class="well" style="height: 468px; border:solid blue 1px; border-radius: 10px;">
+ <div style="margin-left: 710px;margin-top:-510px; width:500px; height: 510px;">
+      <div class="well" style="height: 500px; border:solid blue 1px; border-radius: 10px; margin-top: 5px;">
         <h1 style="color: blue; margin-top: -2px;">About IITM</h1>
       <p>Mata Leelawati Shikshan Sansthan, a registered education society setup The “Institute of Information Technology and Management” in 1999. It is engaged in various philanthropic activities, with Shri T. N. Chaturvedi, a Padma Vibhushan awardee, as the founder President of both, the society and the institute. The Institute is affiliated to Guru Gobind Singh Indraprastha (GGSIP) University, Delhi for Master of Computer Application (MCA), Master of Business Management (MBA), Bachelor of Business Administration (BBA) and Bachelor of Computer Application (BCA) programmes and is also approved by All India Council for Technical Education (AICTE), Read More </p>
 
@@ -132,6 +137,10 @@
       </div>
      
     </div>
+
+
+</div>
+
   </div>
 </div>
 
@@ -147,5 +156,6 @@
 <script type="text/javascript" src="controllers/signupController.js"></script>
 <script type="text/javascript" src="controllers/ForgetPwdctrl.js"></script>
 <script type="text/javascript" src="controllers/profileController.js"></script>
+<script type="text/javascript" src="controllers/testController.js"></script>
 </body>
 </html>

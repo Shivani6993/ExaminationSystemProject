@@ -1,0 +1,36 @@
+<html>
+<head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+
+
+
+
+<body ng-app="examinationSystem">
+
+<center><div style="height:100px; width: 200px;" ng-controller="QuestionController">
+<label for="SUBJECT">SUBJECT</label>
+<input type="text" class="form-control" name="name" id="name" value="" ng-model="subject"/><br><br>
+   QUESTION: <br>
+   <textarea name="comments" id="comments" cols="20" rows="3" ng-model="question"></textarea><br><br>
+   YOUR OPTION ARE:<br/>
+         a)<input type="text" name="a" id="a" value="" ng-model="option1"/><br>
+   <br/>b)<input type="text" name="b" id="b" value="" ng-model="option2"/><br>
+  <br/> c)<input type="text" name="c" id="c" value="" ng-model="option3"/><br>
+ <br/>  d)<input type="text" name="d" id="d" value="" ng-model="option4"/><br>
+
+  <br/>ANSWER: <input type="text" class="form-control" name="ans" id="ans" value="" ng-model="answer" />
+ 
+  <button ng-click="addQuestions()">Submit</button>
+</div>
+</body>
+
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="controllers/QuestionController.js"></script>
+</html>
