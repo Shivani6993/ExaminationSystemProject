@@ -46,14 +46,21 @@ if(err){
 }
 
 
-
-if(data.password==req.query.password){
+if(data){
+	if(data.password==req.query.password){
 
 	res.send(data);
 }
 else{
 	res.send('password incorrect')
 
+}
+
+
+}
+else
+{
+	res.send("no such user exists");
 }
 console.log(">>>>>> data" , data);
 
@@ -173,11 +180,42 @@ else
 })
 
 
+app.get('/sendResult' ,function(req,res){
+
+ console.log(">>>>> find answers")
+MongoClient.connect(url , function(err,db){
+
+if(err){
+	console.log(err);
+}
+
+db.collection('Questions').find({},{Answer :1 , question :1}).toArray(function(err,answers){
+
+
+	if(err){
+		return res.send(err);
+	}
+
+    return res.send(answers);
+
+})
+
+
+
+})
+
+
+})
+
+
 
 
 
 app.listen(7000,function(){
 	console.log('server started');
 });
+
+
+
 
 

@@ -46,7 +46,9 @@ angular.module('examinationSystem',['ui.router'])
 			url:'/startTest',
 			templateUrl:'StartTest.html',
 			params:{
-				test :null
+				test :null,
+				index : 0 ,
+				resultObj : {}
 			},
 			controller:'testController'
 		})

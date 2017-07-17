@@ -1,22 +1,31 @@
 
 <div ng-controller="testController" >
 
-<div ng-repeat="que in Ques">
+<div >
 	
 
 <p>Question</p>{{que.question}} <br/>
- 1)<input type="radio" name="optradio">{{que.Option1}} <br/>
- 2)<input type="radio" name="optradio">{{que.Option2}} <br/>
- 3)<input type="radio" name="optradio">{{que.Option3}} <br/>
- 4)<input type="radio" name="optradio">{{que.Option4}} <br/>
-	
-</div>
+ a)<input type="radio" ng-value="que.Option1"  ng-model="que.radioValue">{{que.Option1}} <br/>
+ b)<input type="radio" ng-value="que.Option2"  ng-model="que.radioValue">{{que.Option2}} <br/>
+ c)<input type="radio"  ng-value="que.Option3" ng-model="que.radioValue">{{que.Option3}} <br/>
+ d)<input type="radio"  ng-value="que.Option4" ng-model="que.radioValue">{{que.Option4}} <br/>
 
-
-
+ currently selected: {{que.radioValue}}
 
 </div>
 
 
-<button type="Submit">Submit</button>
+
+<!-- directive: -->
+<!-- <my-question></my-question> -->
+
+
+<button ng-click="previous()" class="btn btn-info" style="float: left;">Previous</button>
+<button ng-click="next()" class="btn btn-info" style="float: right;">Next</button>
+<button ng-click="finishTest()" class="btn btn-info" style="float: right;">Submit</button>
+
+</div>
+
+
+
 
