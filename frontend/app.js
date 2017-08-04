@@ -9,7 +9,6 @@ angular.module('examinationSystem',['ui.router'])
 			controller:'homectrl'
 		})
 
-	$stateProvider
 		.state('home.login-state',{
 			url:'/login',
 			templateUrl:'login.html',
@@ -17,21 +16,24 @@ angular.module('examinationSystem',['ui.router'])
 		})
 
 
-	$stateProvider
 		.state('home.signUp-state',{
 			url:'/signUp',
 			templateUrl:'signup.html',
 			controller:'signupController'
 		})
 
-	$stateProvider
 		.state('addQues-state',{
 			url:'/addQues',
 			templateUrl:'addQuestion.html',
 			controller:'QuestionController'
 		})
 
-	$stateProvider
+		.state('ScheduleExam-state',{
+			url:'/scheduleExam',
+			templateUrl:'ScheduleExam.html'
+		})
+
+
 		.state('profile-state',{
 			url:'/profile',
 			templateUrl:'profile.html',
@@ -58,22 +60,18 @@ angular.module('examinationSystem',['ui.router'])
 		})
 
 
-
-
-	$stateProvider
 		.state('contact-state',{
 			url:'/contactUs',
 			templateUrl:'contactUs.html'
 		})
 
-	$stateProvider
+
 		.state('home.ForgetPwd-state',{
 			url:'/forgetPwd',
 			templateUrl:'forgetpass.html',
 			controller:'forgetController'
 		})
 
-	$stateProvider
 		.state('StartTest-state',{
 			url:'/startTest',
 			templateUrl:'StartTest.html',
