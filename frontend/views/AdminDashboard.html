@@ -7,7 +7,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+<body ng-app="examinationSystem">
    
 <div style="background-image: url('Online-exam1.jpg'); background-repeat: no-repeat; background-size: cover; height: 160px;"><br/>
 <h1 style="color:white;">Online Examination System</h1>
@@ -34,7 +34,7 @@
                     <a href="#">Add Subject</a>
                 </li>
                 <li>
-                    <a href="addQuestion.html">Add Question</a>
+                    <a ui-sref="addQues-state">Add Question</a>
                 </li>
                 <li>
                     <a href="#">Schedule Exam</a>
@@ -70,8 +70,9 @@
       <p><a href="#">Add Question</a></p>
       <p><a href="#">Schedule Exam</a></p>
     </div>
-    <div class="col-sm-10 text-left" style="height:600px; background-image: url('Online-exam.png');
-    background-repeat: no-repeat; background-size: cover;"> 
+    <div class="col-sm-10 text-left"  ui-view> 
+    <div style="height:600px; background-image: url('Online-exam.png');
+    background-repeat: no-repeat; background-size: cover;"></div>
     </div>
   </div>
 </div>
@@ -81,5 +82,12 @@
 </footer>
 
 
+
 </body>
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="controllers/QuestionController.js"></script>
+
+
 </html>

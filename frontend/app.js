@@ -1,9 +1,16 @@
 angular.module('examinationSystem',['ui.router'])
 
-.config(function($stateProvider){
+.config(function($stateProvider,$urlRouterProvider){
 
 	$stateProvider
-		.state('login-state',{
+		.state('home',{
+			url:'/home',
+			templateUrl:'home.html',
+			controller:'homectrl'
+		})
+
+	$stateProvider
+		.state('home.login-state',{
 			url:'/login',
 			templateUrl:'login.html',
 			controller:'loginController'
@@ -11,10 +18,17 @@ angular.module('examinationSystem',['ui.router'])
 
 
 	$stateProvider
-		.state('signUp-state',{
+		.state('home.signUp-state',{
 			url:'/signUp',
 			templateUrl:'signup.html',
 			controller:'signupController'
+		})
+
+	$stateProvider
+		.state('addQues-state',{
+			url:'/addQues',
+			templateUrl:'addQuestion.html',
+			controller:'QuestionController'
 		})
 
 	$stateProvider
@@ -27,6 +41,24 @@ angular.module('examinationSystem',['ui.router'])
 			controller:'profileController'
 		})
 
+		.state('StartTest-state.nested1',{
+			url:'/nestedstates',
+			templateUrl:'nested1.html',
+			controller: function(){
+				console.log("this is the nested state which is loaded");
+			}
+		})
+
+		.state('StartTest-state.nested2',{
+			url:'/nestedstates2',
+			templateUrl:'nested2.html',
+			controller: function(){
+				console.log("this is the nested state >>>>>>>>>>>>>> which is loaded");
+			}
+		})
+
+
+
 
 	$stateProvider
 		.state('contact-state',{
@@ -35,7 +67,7 @@ angular.module('examinationSystem',['ui.router'])
 		})
 
 	$stateProvider
-		.state('ForgetPwd-state',{
+		.state('home.ForgetPwd-state',{
 			url:'/forgetPwd',
 			templateUrl:'forgetpass.html',
 			controller:'forgetController'

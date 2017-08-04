@@ -84,7 +84,7 @@ angular.module('examinationSystem')
 
 $scope.finishTest=function(){
 
-$scope.showbtn=false;
+
 
 $http({
 		mehtod:'GET',

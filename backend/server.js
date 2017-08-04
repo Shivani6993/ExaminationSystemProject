@@ -64,9 +64,6 @@ else
 }
 console.log(">>>>>> data" , data);
 
-
-
-
 })
 
 })

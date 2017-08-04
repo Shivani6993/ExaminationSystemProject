@@ -25,7 +25,7 @@ $scope.login = function(){
 }
 
 $scope.fp=function(){
-	$state.go('ForgetPwd-state');
+	$state.go('home.ForgetPwd-state');
 }
 
 

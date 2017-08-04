@@ -1,7 +1,7 @@
 <div ng-controller="loginController">
-<div style="height: 490px; border: solid blue 1px; border-radius: 10px;">
+<div>
 <h2 style="color: blue; text-align: center;">Login Form</h2>
-<div style="margin-top: 100px; height: 300px; width:350px; margin-left: 100px;">
+<div style="margin-top: 100px; height: 300px; width:350px; margin-left: 50px;">
 <div class="form-group">
 &nbsp;<label for="email">Email:</label>
 &nbsp;<input type="text" class="form-control" ng-model="mail" placeholder="Username">
@@ -15,7 +15,7 @@
     </div>
 &nbsp;<button class="btn btn-success"  type="submit" ng-click="login()">Submit</button>
 &nbsp;<a href="" ng-click="fp()">Forget Password</a>
-&nbsp;&nbsp;&nbsp;&nbsp;<a ui-sref="signUp-state">New User?SignUp</a>
+&nbsp;&nbsp;<a ui-sref="home.signUp-state">New User?SignUp</a>
 <!--<img src="giphy.gif" ng-show="showLoader"/>-->
 </div>
 </div>
