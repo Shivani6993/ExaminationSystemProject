@@ -43,22 +43,6 @@ angular.module('examinationSystem',['ui.router'])
 			controller:'profileController'
 		})
 
-		.state('StartTest-state.nested1',{
-			url:'/nestedstates',
-			templateUrl:'nested1.html',
-			controller: function(){
-				console.log("this is the nested state which is loaded");
-			}
-		})
-
-		.state('StartTest-state.nested2',{
-			url:'/nestedstates2',
-			templateUrl:'nested2.html',
-			controller: function(){
-				console.log("this is the nested state >>>>>>>>>>>>>> which is loaded");
-			}
-		})
-
 
 		.state('contact-state',{
 			url:'/contactUs',
