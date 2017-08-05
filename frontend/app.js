@@ -30,7 +30,8 @@ angular.module('examinationSystem',['ui.router'])
 
 		.state('ScheduleExam-state',{
 			url:'/scheduleExam',
-			templateUrl:'ScheduleExam.html'
+			templateUrl:'ScheduleExam.html',
+			controller:'scheduleController'
 		})
 
 

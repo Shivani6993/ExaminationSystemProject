@@ -149,6 +149,25 @@ res.send('created');
 
 })
 
+app.post('/scheduleExam',function(req,res){
+
+	console.log('>>>>>>>',req.query);
+	MongoClient.connect(url,function(err,db){
+
+		if(err){
+			console.log(err);
+		}
+
+		console.log('connected')
+		db.collection('scheduleExam').insertOne(req.query,function(err,data){
+			if(err){
+				return res.send('Error');
+			}
+			res.send('created');
+		})
+	})
+})
+
 
 app.get('/StartTest' , function(req,res){
 
