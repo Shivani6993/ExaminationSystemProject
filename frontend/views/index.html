@@ -63,11 +63,12 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a ui-sref="home">Home</a></li>
-        <li><a href="#">About Us</a></li>
+        <li><a ui-sref="about-state">About Us</a></li>
         <li><a ui-sref="contact-state">ContactUs</a></li>
+        <li><a ui-sref="result-state">Result</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="AdminDashboard.html"><span class="fa fa-user"></span> Admin Login</a></li>
+      <ul id="adminid" class="nav navbar-nav navbar-right">
+        <li ><a href="AdminLogin.html"><span class="fa fa-user"></span> Admin Login</a></li>
       </ul>
     </div>
   </div>
@@ -95,6 +96,7 @@
 <script type="text/javascript" src="controllers/ForgetPwdctrl.js"></script>
 <script type="text/javascript" src="controllers/profileController.js"></script>
 <script type="text/javascript" src="controllers/testController.js"></script>
+<script type="text/javascript" src="controllers/resultController.js"></script>
 <script type="text/javascript" src="directives/question.directive.js"></script>
 </body>
 </html>

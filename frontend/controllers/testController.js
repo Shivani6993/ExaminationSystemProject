@@ -1,10 +1,66 @@
 angular.module('examinationSystem')
 
-.controller('testController' , function($q , $scope,$http,$state){
+.controller('testController' , function($scope,$http,$state){
+
+	//clock
+
+	var clockInterval=setInterval(function(){
+
+
+$scope.$apply(function(){
+	updateWatch();
+})
+
+	},1000)
+
+
+
+
+var updateWatch  = function(){
+	if($scope.sec==0){
+
+	$scope.sec=59;
+	if($scope.min==0){
+	$scope.min=59
+	$scope.h=$scope.h-1
+
+	}
+	else
+	$scope.min=$scope.min-1;
+	}else{
+	$scope.sec=$scope.sec-1}
+	if($scope.min==0){
+		$scope.h=$scope.h-1;
+	$scope.min=59;
+}
+}
+
+	
+
+setTimeout(function(){clearInterval(clockInterval)},1800000);
+console.log('start Test' , $state.params);
+	
+	$scope.Ques = $state.params.test
+	$scope.h= 3
+	$scope.min= 00
+	$scope.sec= 00
+
+//calculating result
 
     var requests = [];
+    $scope.resultObj = {}
 	$scope.result = 0;
 	$scope.incorrectans=0;
+	$scope.finalResult = {};
+	var queno = 0;
+	$scope.que;
+
+
+	$scope.check = function(){
+		console.log("this is clicked" , $scope.que.radioValue);
+		$scope.resultObj[$scope.que.question] = $scope.que.radioValue;
+		console.log("resultobj" , $scope.resultObj);
+	}
 	
 
 	$http({
@@ -14,7 +70,7 @@ angular.module('examinationSystem')
 	})
 	.then(function(response){
 		$scope.Ques = response.data;
-		$scope.que = response.data[$state.params.index];
+		$scope.que = response.data[queno];
             console.log("result obj " , $state.params.resultObj);
 			if($state.params.resultObj.hasOwnProperty($scope.que.question)){
 				$scope.que.radioValue = $state.params.resultObj[$scope.que.question]
@@ -22,61 +78,40 @@ angular.module('examinationSystem')
 	})
 
 
-
-
    $scope.next = function(){
-   
-   	$state.go('StartTest-state' , {index:$state.params.index + 1 , resultObj : $state.params.resultObj})
-   	console.log(">>>>>> que"  ,$scope.que , $scope.que.radioValue);
-   	$state.params.resultObj[$scope.que.question] = $scope.que.radioValue ;
+   	queno++;
+   	$scope.que = $scope.Ques[queno];
 
    }
 
    $scope.previous = function(){
-   	
-   	$state.go('StartTest-state' , {index:$state.params.index - 1 , resultObj : $state.params.resultObj});
-   	$state.params.resultObj[$scope.que.question] = $scope.que.radioValue ;
+   	 	queno--;
+   	$scope.que = $scope.Ques[queno];
    }
 
 
 	function calculateResult(Answers1){
 		console.log("inside function" , Answers1);
 
-
-		console.log(">>>>>> ques " , $scope.Ques);
-
 		Answers1.forEach(function(ans){
 
-			$scope.Ques.forEach(function(que){
 
+			console.log(">>> this is each answer " , ans)
 
-			
-
-		
-			   var deferred = $q.defer();
-			   requests.push(deferred);
-
-
-
-
-
-				if(que.question==ans.question && que.radioValue == ans.Answer){
-                     $scope.result = $scope.result + 1 ;
-                     console.log('inside loop')
+			if($scope.resultObj.hasOwnProperty(ans.question)){
+				if($scope.resultObj[ans.question] == ans.Answer){
+					$scope.result++;
 				}
-				else if(que.question==ans.question && que.radioValue !=ans.Answer){
-					$scope.incorrectans= $scope.incorrectans + 1;
-					console.log('incorrect answer' , typeof $scope.incorrectans )
-				}
-
-				
-
-
-			})
+			}
 
 			
 
 		})
+
+
+		console.log('your score is ' , $scope.result);
+		$state.go('result-state' , {result : $scope.result});
+
 
 
 	}
@@ -84,24 +119,18 @@ angular.module('examinationSystem')
 
 $scope.finishTest=function(){
 
-
+console.log(">>> this is the submission" , $scope.resultObj);
 
 $http({
 		mehtod:'GET',
 		url:'/sendResult'
 	}).then(function(response){
-		console.log("answers are" ,  response.data);
 		var Answers=response.data;
-		console.log(">>>>",Answers);
 
 
 		calculateResult(Answers);
-		$q.all(requests).then(function(){
-					console.log($scope.result,"//");
-			    	console.log($scope.incorrectans);
-			});
 
-		},function(error){})
+		 },function(error){})
 
 
 

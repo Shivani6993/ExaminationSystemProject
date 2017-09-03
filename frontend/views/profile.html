@@ -1,10 +1,15 @@
-
-<div ng-controller="profileController" >
-<p>Username:</p>{{name}}
-<p>Email:</p>{{mail}}
+<div style="height: 520px; width:100%; border: 1px solid green;">
+<div>
+<div style="height: 500px; width:320px; border: 1px solid blue; margin-top: 10px;
+margin-left: 10px;">
+<p style="color:blue; font-size: 20px;">Logged in as</p>{{name}}
 </div>
 
+<div style="height: 500px; width:800px; border: 1px solid blue; margin-top: -500px; float: right; margin-right: 10px;" ui-view>
+<br/><br/>
+&nbsp;&nbsp;&nbsp;<h3> You can start the test by clicking this startTest button</h3>
 
-
-
-<button ng-click="startTest()">Start Test</button>
+<button class="btn btn-info" ng-click="startTest()">Start Test</button>
+</div>
+</div>
+</div>

@@ -21,6 +21,9 @@ $scope.login = function(){
 		console.log("cookie" , document.cookie)
     // $scope.showLoader = false;
 		$state.go('profile-state' , {xyz : response.data});
+		$scope.isLoggedIn = true;
+		var elem = document.getElementById('adminid');
+		elem.style.display = 'none';
 	})
 }
 
