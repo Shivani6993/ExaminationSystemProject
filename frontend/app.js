@@ -50,6 +50,20 @@ angular.module('examinationSystem',['ui.router'])
 			templateUrl:'contactUs.html'
 		})
 
+		.state('about-state',{
+			url:'/AboutUs',
+			templateUrl:'AboutUs.html'
+		})
+
+		.state('result-state',{
+			url:'/getresult',
+			templateUrl:'GetResult.html',
+			params:{
+				result:null
+			},
+			controller:'resultCtrl'
+		})
+
 
 		.state('home.ForgetPwd-state',{
 			url:'/forgetPwd',

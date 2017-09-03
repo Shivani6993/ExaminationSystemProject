@@ -71,6 +71,49 @@ console.log(">>>>>> data" , data);
 })
 
 
+app.get('/Sin' , function(req,res){
+
+	console.log('>>> data received from front' , req.query);
+	
+
+MongoClient.connect(url , function(err,db){
+
+if(err){
+	console.log(err);
+}
+console.log('connected')
+
+db.collection('Admin').findOne({uname:req.query.uname} , function(err,data){
+if(err){
+	return res.send('Error');
+}
+
+
+if(data){
+	if(data.password==req.query.password){
+
+	res.send(data);
+}
+else{
+	res.send('password incorrect')
+
+}
+
+
+}
+else
+{
+	res.send("no such user exists");
+}
+console.log(">>>>>> data" , data);
+
+})
+
+})
+
+})
+
+
 app.post('/SignUp' , function(req,res){
 
 	console.log('>>> data received from front' , req.query);
@@ -140,6 +183,7 @@ db.collection('Questions').insertOne(req.query , function(err,data){
 if(err){
 	return res.send('Error');
 }
+
 res.send('created');
 
 
