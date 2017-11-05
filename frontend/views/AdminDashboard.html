@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body ng-app="examinationSystem">
+
    
 <div style="background-image: url('Online-exam1.jpg'); background-repeat: no-repeat; background-size: cover; height: 160px;"><br/>
 <h1 style="color:white;">Online Examination System</h1>
@@ -25,19 +16,18 @@
 
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="AdminDashboard.html">Home</a>
+                    <a ui-sref="admin">Home</a>
                 </li>
                 <li>
-                    <a href="#">Add Course</a>
+                    <a ui-sref="admin.course-state">Add Course</a>
+                </li>                <li>
+                    <a ui-sref="admin.subject-state">Add Subject</a>
                 </li>
                 <li>
-                    <a href="#">Add Subject</a>
+                    <a ui-sref="admin.addQues-state">Add Question</a>
                 </li>
                 <li>
-                    <a ui-sref="addQues-state">Add Question</a>
-                </li>
-                <li>
-                    <a ui-sref="ScheduleExam-state">Schedule Exam</a>
+                    <a ui-sref="admin.ScheduleExam-state">Schedule Exam</a>
                 </li>
 
             </ul>
@@ -81,14 +71,3 @@
   <h3>&copy; Online examination system All rights reserved</h3>
 </footer>
 
-
-
-</body>
-<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-<script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script type="text/javascript" src="app.js"></script>
-<script type="text/javascript" src="controllers/QuestionController.js"></script>
-<script type="text/javascript" src ="controllers/scheduleController.js"></script>
-
-
-</html>

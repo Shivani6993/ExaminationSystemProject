@@ -1,33 +1,39 @@
 
-<div ng-controller="testController" >
+<div ng-controller="testController" style="height: 400px;">
 
 
-<div style="float:right;">
-	{{h}}:{{min}}:{{sec}}
+<div style="float:left;">
+	<h3> Total Number of Questions:10</h3>
 </div>
 
-<div >
+<div style="float:right;">
+	<h3> Time Duration</h3>
+	<h3>{{h}}:{{min}}:{{sec}}</h3>
+</div>
+
+
+<div>
 	
 
-<p>Question</p>{{que.question}} <br/>
+<h4><p></p><br/><br/><br/><br/><br/><br/><br/>{{que.question}} <br/>
  a)<input type="radio" ng-change="check()" ng-value="que.Option1"  ng-model="que.radioValue">{{que.Option1}} <br/>
  b)<input type="radio" ng-change="check()" ng-value="que.Option2"  ng-model="que.radioValue">{{que.Option2}} <br/>
  c)<input type="radio" ng-change="check()" ng-value="que.Option3" ng-model="que.radioValue">{{que.Option3}} <br/>
  d)<input type="radio" ng-change="check()" ng-value="que.Option4" ng-model="que.radioValue">{{que.Option4}} <br/>
 
- currently selected: {{que.radioValue}}
+ currently selected: {{que.radioValue}}</h4>
 
 </div>
 
-
+<br/><br/><br/>
 <!-- directive: -->
 <!-- <my-question></my-question> -->
 
 
+<button ng-click="finishTest()" class="btn btn-info" style="float: right; margin-right: 2px;">Submit Test</button>
+<button ng-click="next()" class="btn btn-info" style="float: right; margin-right: 10px;">Next</button>
+<button ng-click="previous()" class="btn btn-info" style="float: right; margin-right: 20px;">Previous</button> 
 
-<button ng-click="previous()" class="btn btn-info" style="float: left;">Previous</button>
-<button ng-click="next()" class="btn btn-info" style="float: right;">Next</button>
-<button ng-click="finishTest()" class="btn btn-info" style="float: right;">Submit</button>
 
 </div>
 

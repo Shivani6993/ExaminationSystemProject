@@ -2,14 +2,30 @@
 <div>
 <div style="height: 500px; width:320px; border: 1px solid blue; margin-top: 10px;
 margin-left: 10px;">
-<p style="color:blue; font-size: 20px;">Logged in as</p>{{name}}
+<p style="color:blue; font-size: 20px; margin-left: 10px;">Logged in as</p>{{name}}
+<br/><br/>
+<button class="btn btn-info" style="margin-top: 300px; margin-left: 10px;">Logout</button>
 </div>
 
 <div style="height: 500px; width:800px; border: 1px solid blue; margin-top: -500px; float: right; margin-right: 10px;" ui-view>
 <br/><br/>
-&nbsp;&nbsp;&nbsp;<h3> You can start the test by clicking this startTest button</h3>
+<h3 style="margin-left: 10px;"> You can start the test by clicking this Start Test button</h3><br/>
+<P style="margin-left: 10px;">
+Instructions: <br/>
+1) Test contains  number of questions are : 10 <br/>
+2) Time duration : 30 mins <br/>
+3) Do not refresh page and press back while doing test. <br/>
+4) No Negative marking. <br/>
+</P><br/>
 
-<button class="btn btn-info" ng-click="startTest()">Start Test</button>
+<!--<h3> Choose Subject : &nbsp;&nbsp; 
+	<select><OPTION>C++</OPTION>
+		<OPTION>Java</OPTION>
+		<OPTION>MongoDB</OPTION>
+	
+</select> </h3>-->
+
+<button class="btn btn-info" ng-click="startTest()" style="margin-left: 10px;">Start Test</button>
 </div>
 </div>
 </div>

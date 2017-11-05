@@ -1,15 +1,21 @@
 <div ng-controller="forgetController">
-<div>
+<form name="myForm">
 <div style="margin-top: 100px; height: 300px; width:350px; margin-left: 50px;">
 <div class="form-group">
 <br/>
 <br/>
 <br/>
 <label for="email" class="fa fa-envelope">Enter your mail Id:</label><br/><br/>
-<input type="text" name="" class="form-control" placeholder="123@gmail.com" ng-model="mail">
+<p>
+<input type="email" name="mail" class="form-control" placeholder="123@gmail.com" ng-model="mail" required>
+<span style="color:red;" ng-show="myForm.mail.$touched && myForm.mail.$invalid">
+<span ng-show="myForm.mail.$error.required">Email is required.</span>
+<span ng-show="myForm.mail.$error.email">Invalid email address.</span>
+</span>
+</p>
 <br/>
 <center><button ng-click="sendMail()" class="btn btn-success">Submit</button></center>
 </div>
 </div>
-</div>
+</form>
 </div>

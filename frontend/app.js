@@ -1,4 +1,4 @@
-angular.module('examinationSystem',['ui.router'])
+var app = angular.module('examinationSystem',['ui.router'])
 
 .config(function($stateProvider,$urlRouterProvider){
 
@@ -7,6 +7,11 @@ angular.module('examinationSystem',['ui.router'])
 			url:'/home',
 			templateUrl:'home.html',
 			controller:'homectrl'
+		})
+
+		.state('admin',{
+			url:'/admindashboard',
+			templateUrl:'AdminDashboard.html'
 		})
 
 		.state('home.login-state',{
@@ -22,16 +27,28 @@ angular.module('examinationSystem',['ui.router'])
 			controller:'signupController'
 		})
 
-		.state('addQues-state',{
+		.state('admin.addQues-state',{
 			url:'/addQues',
 			templateUrl:'addQuestion.html',
 			controller:'QuestionController'
 		})
 
-		.state('ScheduleExam-state',{
+		.state('admin.ScheduleExam-state',{
 			url:'/scheduleExam',
 			templateUrl:'ScheduleExam.html',
 			controller:'scheduleController'
+		})
+
+		.state('admin.course-state',{
+			url:'/AddCourse',
+			templateUrl:'AddCourse.html',
+			controller:'courseController'
+		})
+
+		.state('admin.subject-state',{
+			url:'/AddSubject',
+			templateUrl:'AddSubject.html',
+			controller:'subController'
 		})
 
 
@@ -88,3 +105,6 @@ angular.module('examinationSystem',['ui.router'])
 	console.log(">>>>>>> checking local storge" , localStorage)
 	console.log(">>>>>>>>>>>>>>>>>" , document.cookie)
 })
+
+
+

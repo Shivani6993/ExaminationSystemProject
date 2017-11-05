@@ -1,17 +1,16 @@
 angular.module('examinationSystem')
 
-.controller('profileController' , function($scope,$http,$state){
+.controller('profileController' , function($scope,$http,$state,loginService){
 
 
-	console.log('loggedin successfully' , $state.params);
+	//loginService.get();
+	console.log('loggedin successfully' , loginService.getuser() );
 
-	$scope.student = $state.params.xyz;
-
-
-	$scope.name = $state.params.xyz.name;
-	$scope.mail = $state.params.xyz.mail
+	$scope.student = loginService.getuser();
 
 
+	$scope.name = loginService.getuser().name;
+	$scope.mail = loginService.getuser().mail;
 
 	$scope.startTest = function(){
 

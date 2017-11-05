@@ -41,8 +41,8 @@ setTimeout(function(){clearInterval(clockInterval)},1800000);
 console.log('start Test' , $state.params);
 	
 	$scope.Ques = $state.params.test
-	$scope.h= 3
-	$scope.min= 00
+	$scope.h= 00
+	$scope.min= 30
 	$scope.sec= 00
 
 //calculating result
@@ -51,6 +51,7 @@ console.log('start Test' , $state.params);
     $scope.resultObj = {}
 	$scope.result = 0;
 	$scope.incorrectans=0;
+	$scope.correctans=0;
 	$scope.finalResult = {};
 	var queno = 0;
 	$scope.que;
@@ -102,6 +103,7 @@ console.log('start Test' , $state.params);
 				if($scope.resultObj[ans.question] == ans.Answer){
 					$scope.result++;
 				}
+
 			}
 
 			

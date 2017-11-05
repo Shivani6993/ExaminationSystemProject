@@ -10,7 +10,6 @@ var MongoClient = require('mongodb').MongoClient
 var url = 'mongodb://localhost:27017/Examinationdb';
 
 
-
 var app = express();
 
 app.use(express.static(path.resolve(__dirname + './../frontend/views')));
@@ -71,7 +70,7 @@ console.log(">>>>>> data" , data);
 })
 
 
-app.get('/Sin' , function(req,res){
+app.get('/sin' , function(req,res){
 
 	console.log('>>> data received from front' , req.query);
 	
@@ -114,6 +113,8 @@ console.log(">>>>>> data" , data);
 })
 
 
+
+
 app.post('/SignUp' , function(req,res){
 
 	console.log('>>> data received from front' , req.query);
@@ -126,7 +127,74 @@ if(err){
 }
 console.log('connected')
 
+
+
+/*function getNextId(name){
+
+	var ret = db.collection('counters').findAndModify({
+		{_id:name},
+		{ $inc: {seq:1}},
+		{new:true}
+	}, function(err,res){
+		console.log("thi is seq" , res)
+	})
+     console.log(">>>>>>" , ret)
+	return ret
+}*/
+
+//req.query._id = getNextId('studentid')
+console.log(">>>> req query" , req.query);
 db.collection('Students').insertOne(req.query , function(err,data){
+if(err){
+	return res.send('Error');
+}
+res.send('created');
+
+
+})
+
+})
+
+})
+
+app.post('/AddCourse' , function(req,res){
+
+	console.log('>>> data received from front' , req.query);
+	
+
+MongoClient.connect(url , function(err,db){
+
+if(err){
+	console.log(err);
+}
+console.log('connected')
+
+db.collection('course').insertOne(req.query , function(err,data){
+if(err){
+	return res.send('Error');
+}
+res.send('created');
+
+
+})
+
+})
+
+})
+
+app.post('/AddSubject' , function(req,res){
+
+	console.log('>>> data received from front' , req.query);
+	
+
+MongoClient.connect(url , function(err,db){
+
+if(err){
+	console.log(err);
+}
+console.log('connected')
+
+db.collection('Subject').insertOne(req.query , function(err,data){
 if(err){
 	return res.send('Error');
 }
@@ -239,6 +307,32 @@ else
 
 })
 
+app.get('/selectCourse' , function(req,res){
+
+	
+console.log("...................")
+MongoClient.connect(url , function(err,db){
+
+if(err){
+	console.log(err);
+}
+console.log('connected')
+
+db.collection('course').find({}).toArray(function(err,ques){
+if(err){
+	res.send(err);
+}
+
+else
+	res.send(ques);
+
+
+})
+
+})
+
+})
+
 
 app.get('/sendResult' ,function(req,res){
 
@@ -266,6 +360,7 @@ db.collection('Questions').find({},{Answer :1 , question :1}).toArray(function(e
 
 
 })
+
 
 
 

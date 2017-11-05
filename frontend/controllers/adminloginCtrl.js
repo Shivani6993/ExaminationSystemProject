@@ -11,12 +11,13 @@ $scope.login = function(){
 		url:'/sin',
 		params:{
 			uname : $scope.uname,
-			pwd : $scope.pass
+			password : $scope.password
 		}
 	})
 	.then(function(response){
-		console.log(">>>>>>. response data",response.data)
-		response.redirect('AdminDashboard.html');
+		console.log(">>>>>>response data",response.data)
+		alert("logged  In succesfully");
+		$state.go('admin');
 	})
 }
 

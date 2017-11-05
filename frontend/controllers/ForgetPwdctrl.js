@@ -13,6 +13,7 @@ angular.module('examinationSystem')
 			}
 					}).then(function(response){
 			console.log(">>>>>response", $scope.mail);
+			alert('Your Password has been mailed to your email Address ' + $scope.mail);
 
 			
 		})
