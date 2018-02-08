@@ -102,17 +102,22 @@ console.log('start Test' , $state.params);
 			if($scope.resultObj.hasOwnProperty(ans.question)){
 				if($scope.resultObj[ans.question] == ans.Answer){
 					$scope.result++;
+					$scope.correctans++;
 				}
+			$scope.incorrectans = $scope.Ques.length - $scope.correctans;
+			console.log("incorrectans", $scope.incorrectans);
 
 			}
 
-			
 
 		})
 
-
 		console.log('your score is ' , $scope.result);
-		$state.go('result-state' , {result : $scope.result});
+		$state.go('result-state' , {result : $scope.result,
+			correctans : $scope.correctans,
+			incorrectans : $scope.incorrectans,
+			ques : $scope.Ques.length
+		});
 
 
 
